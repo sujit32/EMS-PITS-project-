@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "View Form";
+}
+
+@model List<MyProject.Models.Address>
+
+<div class="container mt-3">
+    <div>
+    <h1 class="text-center">View Data</h1>
+    </div> <br />
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Gender</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var data in Model){
+                <tr>
+                    <td>@data.Name</td>
+                    <td>@data.Email</td>
+                    <td>@data.Password</td>
+                    <td>@data.Gender</td>
+
+                    <td>
+                        <a href="Update/@data.Id" class="btn btn-success" name="edit">Edit</a>
+
+                        <a href="Delete/@data.Id" class="btn btn-danger" name="submit">Delete</a>
+                    </td>
+                    
+
+                </tr>
+            }
+
+        </tbody>
+       
+    </table>
+</div>

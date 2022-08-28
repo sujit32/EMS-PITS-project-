@@ -1,0 +1,79 @@
+﻿@{
+    ViewData["Title"] = "Update Data";
+}
+
+@model MyProject.Models.Address
+
+<div>
+    <h1>Edit Data</h1>
+</div>
+
+<form method="post" asp-controller="Home" asp-action="UpdateData">
+    <div class="row mb-4">
+        <div class="col-sm-5">
+            <input type="hidden" class="form-control" asp-for="Id">
+        </div>
+    </div>
+    
+
+    <div class="col-md-6">
+    <div class="row mb-4">
+        <div class="col-sm-5">
+            <div class="form-outline mb">
+                <input type="text" id="form3Example1" asp-for="Name" class="form-control" />
+                <label class="form-label" for="form3Example1">Name:</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Email input -->
+    <div class="row mb-4">
+        <div class="col-sm-5">
+            <div class="form-outline mb">
+                <input type="email" id="form3Example3" asp-for="Email" class="form-control" />
+                <label class="form-label" for="form3Example3">Email:</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Password input -->
+    <div class="row mb-4">
+        <div class="col-sm-5">
+
+            <div class="form-outline mb">
+                <input type="text" id="form3Example4" asp-for="Password" class="form-control" />
+                <label class="form-label" for="form3Example4">Password:</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-sm-5">
+
+            <div class="form-outline mb">
+                <input type="text" id="form3Example4" asp-for="ConfirmPassword" class="form-control" />
+                <label class="form-label" for="form3Example4">Confirm Password:</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 pb-5">
+            <label class="form-check-label" for="inlineCheckbox1">Gender:</label>
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="inlineCheckbox1" asp-for="Gender" name="Gender" value="Male">
+                <label class="form-check-label" for="inlineCheckbox1">
+                    Male
+                </label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="inlineCheckbox2" asp-for="Gender" name="Gender" value="Female">
+                <label class="form-check-label" for="inlineCheckbox2">
+                    Female
+                </label>
+            </div>
+    </div>
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary btn-block mb-4">Update</button>
+</form>

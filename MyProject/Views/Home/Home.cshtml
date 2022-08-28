@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+    <div style="position: absolute; left:0; width: 100%; height: 100%;">
+        <div id="main_wrapper">
+            <div id="left_column">
+                <table style="width: 100%">
+                    <tr>
+                        <td style="padding: 10px;">
+                                <h3>All Notes</h3>
+                        </td>
+                        <td style="padding: 10px; text-align: right;">
+                            <button id="btn" class="btn btn-primary btn-sm">Add New </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="right_column">
+
+                <form id="note_form" action="" method="post">
+                    <textarea id="txt_note" name="" placeholder="Write note here..."></textarea>
+
+
+                </form>
+                <div id="text_area_toolbar">
+                    <table style="width: 100%; height: 100%;">
+                        <tr>
+                            <td style="text-align: right; padding-right:10px;">
+                                <button id="btn_save" class="btn btn-primary btn-sm">Save </button>
+                                <button id="btn_update" class="btn btn-primary btn-sm">Update </button>
+                                <button id="btn_delete" class="btn btn-danger btn-sm">Delete </button>
+                            </td>
+
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+        
+
