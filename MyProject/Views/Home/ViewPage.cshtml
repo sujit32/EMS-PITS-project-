@@ -1,43 +1,133 @@
 ﻿@{
     ViewData["Title"] = "View Form";
+    int a = 1;
 }
 
-@model List<MyProject.Models.Address>
+@*Inserting Data*@
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal1">
+    Add New
+</button>
+
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add People</h5>
+            </div>
+
+            <div class="modal-body">
+                <form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Index">
+                    <div class="form-outline mb-4">
+                        <input type="text" id="form3Example1" name="name" class="form-control" required/>
+                        <label class="form-label" for="form3Example1">Name:</label>
+                        <span TempData="Name" class="text-danger">@TempData["Name"]</span>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <input type="email" id="form3Example3" name="email" class="form-control" required />
+                        <label class="form-label" for="form3Example3">Email:</label>
+                        <span class="text-danger">@TempData["Email"]</span>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <input type="password" id="form3Example3" name="Password" class="form-control" required />
+                        <label class="form-label" for="form3Example3">Password:</label>
+                        <span class="text-danger">@TempData["Password"]</span>
+                    </div>
+
+
+                    <div class="form-outline mb-4">
+                        <input type="text" id="form3Example1" name="HomeTown" class="form-control" required />
+                        <label class="form-label" for="form3Example1">Address:</label>
+                        <span class="text-danger">@TempData["Address"]</span>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <input type="text" id="form3Example1" max="9" maxlength="10" pattern="[0-9]+" name="Phone" class="form-control" required />
+                        <label class="form-label" for="form3Example1">Phone:</label>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <input type="file" id="Image" class="form-control" name="Image" required />
+                        <label class="form-label" for="Image">Image:</label>
+                    </div>
+
+                    <div class="col-12 pb-5">
+                        <label class="form-check-label" for="inlineCheckbox1">Gender:</label>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="inlineCheckbox1" name="Gender" value="Male">
+                            <label class="form-check-label" for="inlineCheckbox1">
+                                Male
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="inlineCheckbox2" name="Gender" value="Female">
+                            <label class="form-check-label" for="inlineCheckbox2">
+                                Female
+                            </label>
+                        </div>
+                    </div>
+
+                    <input type="submit" value="Submit" class="btn btn-primary btn-block mb-4"/>
+                    <button type="button" class="btn btn-danger btn-block mb-4" data-bs-dismiss="modal">Close</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="container mt-3">
     <div>
-    <h1 class="text-center">View Data</h1>
+        <h1 class="text-center">View Data</h1>
     </div> <br />
 
     <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Password</th>
-                <th>Gender</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var data in Model){
+            <thead>
                 <tr>
-                    <td>@data.Name</td>
-                    <td>@data.Email</td>
-                    <td>@data.Password</td>
-                    <td>@data.Gender</td>
-
-                    <td>
-                        <a href="Update/@data.Id" class="btn btn-success" name="edit">Edit</a>
-
-                        <a href="Delete/@data.Id" class="btn btn-danger" name="submit">Delete</a>
-                    </td>
-                    
-
+                    <th>S.n.</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>    
+                    <th>Address</th>
+                    <th>Gender</th>
+                    <th>Image</th>
+                    <th>Action</th>
                 </tr>
-            }
+            </thead>
+            <tbody>
+                @foreach (var data in Model)
+                {
+                    <tr>
+                        <td>@a</td>
+                        <td>@data.Name</td>
+                        <td>@data.Email</td>
+                        <td>@data.Phone</td>
+                        <td>@data.HomeTown</td>
+                        <td>@data.Gender</td>
+                        
+                    <td><img src="/image/@data.Image" height="70sp" width="70sp">   </td>
 
-        </tbody>
-       
+                        <td>
+                            <a href="/Home/Update/@data.Id" class="btn btn-success" name="edit">Edit</a>
+
+                            <a href="/Home/Delete/@data.Id" class="btn btn-danger" name="submit">Delete</a>
+
+                            &nbsp;
+                            <a href="/Home/Profile/@data.Id">
+                                <img src="/image/@data.Image" class="rounded-circle" height="40px" width="40px" />
+                            </a>
+               
+                        </td>
+                        @{
+                            a++;
+                        }
+                    </tr>
+                }
+
+            </tbody>
     </table>
 </div>
+
+

@@ -6,6 +6,7 @@ namespace MyProject.Data
     {
         public AppDBContext(DbContextOptions<AppDBContext> options) : base(options)
         {
+
         }
 
         public DbSet<Models.Address> Addresses { get; set; }

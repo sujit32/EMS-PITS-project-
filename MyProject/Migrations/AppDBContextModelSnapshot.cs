@@ -29,13 +29,16 @@ namespace MyProject.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("ConfirmPassword")
-                        .HasColumnType("text");
-
                     b.Property<string>("Email")
                         .HasColumnType("text");
 
                     b.Property<string>("Gender")
+                        .HasColumnType("text");
+
+                    b.Property<string>("HomeTown")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Image")
                         .HasColumnType("text");
 
                     b.Property<string>("Name")
@@ -43,6 +46,9 @@ namespace MyProject.Migrations
 
                     b.Property<string>("Password")
                         .HasColumnType("text");
+
+                    b.Property<long>("Phone")
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 

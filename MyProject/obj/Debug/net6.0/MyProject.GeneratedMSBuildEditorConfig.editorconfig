@@ -15,8 +15,8 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Users\DEll\source\repos\MyProject\MyProject
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/DEll/source/repos/MyProject/MyProject/Views/Home/Home.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIb21lLmNzaHRtbA==
+[C:/Users/DEll/source/repos/MyProject/MyProject/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/DEll/source/repos/MyProject/MyProject/Views/Home/Index.cshtml]
@@ -25,6 +25,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/DEll/source/repos/MyProject/MyProject/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DEll/source/repos/MyProject/MyProject/Views/Home/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/DEll/source/repos/MyProject/MyProject/Views/Home/Update.cshtml]

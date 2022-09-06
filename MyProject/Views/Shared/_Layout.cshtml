@@ -17,43 +17,45 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Home">Home</a>
-                        </li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1">
+                            @*<li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Home">Home</a>
+                            </li>
+*@
+                            <li class="nav-item">
+                                <a class="nav-link active text-light" asp-area="" asp-controller="Home" asp-action="ViewPage">View Data</a>
+                            </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link active text-light" asp-area="" asp-controller="Home" asp-action="Index">Index</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link active text-light" asp-area="" asp-controller="Home" asp-action="ViewPage">View Data</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link active text-light" asp-area="" asp-controller="Home" asp-action="Update">Update Data</a>
-                        </li>
-
-
-
-                        <li class="nav-item">
-                            <a class="nav-link active text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+                            <li class="nav-item">
+                                <a class="nav-link active text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            </li>                   
+                        </ul>
+                    </div>
+                }
+                @if(User.Identity.IsAuthenticated)
+                {
+                    <a class="btn btn-danger" asp-controller="Admin" asp-action="Logout">Logout</a>
+                }else{
+                <a class="btn btn-success" asp-controller="Admin" asp-action="Index" >Login</a>
+                }
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await Component.InvokeAsync("Notyf")
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
